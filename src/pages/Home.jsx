@@ -30,7 +30,7 @@ export default function Home() {
                 <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
                     <Box sx={{ background: '#666699', height: '300px', width: '400px', position: 'relative', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center'}} onClick={() => navigate("/number")}>
                         <Typography color="white" align="center" variant="h3">
-                            3050
+                            3050<sub style={{fontSize: 10}}>16</sub>
                         </Typography>
                         <Box sx={{ position: 'absolute', bottom: 0, width: 'inherit', background: 'rgba(0,0,0, .2)', color: 'white' }}>
                             <Typography align="center" fontSize={20} component="div">
