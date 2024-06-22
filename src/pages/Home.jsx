@@ -11,10 +11,12 @@ import { toast } from 'react-toastify'
 export default function Home() {
     const navigate = useNavigate()
     const [leaders, setLeaders] = useState({})
+    const [isOnline, setIsOnline] = useState(false)
     useEffect(() => {
         leaderboards().then(res => {
             if(res?.ok){
                 setLeaders(res.data)
+                setIsOnline(true)
             }
             else{
                 toast.error(res?.message ?? "Failed to fetch the leaderboards.")
@@ -55,103 +57,112 @@ export default function Home() {
                         </Box>
                     </Box>
                 </Box>
-                <Box sx={{mt: 4}}>
-                    <Typography align="center" variant="h2">
-                        Leaderboards
-                    </Typography>
-                    <Box sx={{display: 'flex', justifyContent: 'center', gap: 3}}>
-                        <Box sx={{width: '400px'}}>
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell colSpan={3}>
-                                            <Typography align="center" variant="h5">
-                                                Number Memory
-                                            </Typography>
-                                        </TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            <Typography align="center">
-                                                Rank
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography align="center">
-                                                Name
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography align="center">
-                                                Score
-                                            </Typography>
-                                        </TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {leaders?.number_memory?.map((p, index) => (
-                                        <TableRow key={p.id}>
-                                            <TableCell align="center">
-                                                {index + 1}
-                                            </TableCell>
-                                            <TableCell align="center">
-                                                {p.display_name}
-                                            </TableCell>
-                                            <TableCell align="center">
-                                                {p.score}
+                {
+                    isOnline ? 
+                    <Box sx={{mt: 4}}>
+                        <Typography align="center" variant="h2">
+                            Leaderboards
+                        </Typography>
+                        <Box sx={{display: 'flex', justifyContent: 'center', gap: 3}}>
+                            <Box sx={{width: '400px'}}>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell colSpan={3}>
+                                                <Typography align="center" variant="h5">
+                                                    Number Memory
+                                                </Typography>
                                             </TableCell>
                                         </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </Box>
-                        <Box sx={{width: '400px'}}>
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell colSpan={3}>
-                                            <Typography align="center" variant="h5">
-                                                Sequence Memory
-                                            </Typography>
-                                        </TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            <Typography align="center">
-                                                Rank
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography align="center">
-                                                Name
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Typography align="center">
-                                                Score
-                                            </Typography>
-                                        </TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {leaders?.sequence_memory?.map((p, index) => (
-                                        <TableRow key={p.id}>
-                                            <TableCell align="center">
-                                                {index + 1}
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography align="center">
+                                                    Rank
+                                                </Typography>
                                             </TableCell>
-                                            <TableCell align="center">
-                                                {p.display_name}
+                                            <TableCell>
+                                                <Typography align="center">
+                                                    Name
+                                                </Typography>
                                             </TableCell>
-                                            <TableCell align="center">
-                                                {p.score}
+                                            <TableCell>
+                                                <Typography align="center">
+                                                    Score
+                                                </Typography>
                                             </TableCell>
                                         </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
+                                    </TableHead>
+                                    <TableBody>
+                                        {leaders?.number_memory?.map((p, index) => (
+                                            <TableRow key={p.id}>
+                                                <TableCell align="center">
+                                                    {index + 1}
+                                                </TableCell>
+                                                <TableCell align="center">
+                                                    {p.display_name}
+                                                </TableCell>
+                                                <TableCell align="center">
+                                                    {p.score}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </Box>
+                            <Box sx={{width: '400px'}}>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell colSpan={3}>
+                                                <Typography align="center" variant="h5">
+                                                    Sequence Memory
+                                                </Typography>
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography align="center">
+                                                    Rank
+                                                </Typography>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Typography align="center">
+                                                    Name
+                                                </Typography>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Typography align="center">
+                                                    Score
+                                                </Typography>
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {leaders?.sequence_memory?.map((p, index) => (
+                                            <TableRow key={p.id}>
+                                                <TableCell align="center">
+                                                    {index + 1}
+                                                </TableCell>
+                                                <TableCell align="center">
+                                                    {p.display_name}
+                                                </TableCell>
+                                                <TableCell align="center">
+                                                    {p.score}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </Box>
                         </Box>
                     </Box>
-                </Box>
+                    :
+                    <Box sx={{mt: 4}}>
+                        <Typography variant="h3" align="center">
+                            Waiting to connect to internet...
+                        </Typography>
+                    </Box>
+                }
             </Box>
         </>
     )
