@@ -59,7 +59,7 @@ export default function Home() {
                 </Box>
                 {
                     isOnline ? 
-                    <Box sx={{mt: 4}}>
+                    <Box sx={{my: 4}}>
                         <Typography align="center" variant="h2">
                             Leaderboards
                         </Typography>
@@ -74,19 +74,19 @@ export default function Home() {
                                                 </Typography>
                                             </TableCell>
                                         </TableRow>
-                                        <TableRow>
+                                        <TableRow sx={{background: 'grey'}}>
                                             <TableCell>
-                                                <Typography align="center">
+                                                <Typography sx={{fontWeight: 'bold'}} align="center">
                                                     Rank
                                                 </Typography>
                                             </TableCell>
                                             <TableCell>
-                                                <Typography align="center">
+                                                <Typography sx={{fontWeight: 'bold'}} align="center">
                                                     Name
                                                 </Typography>
                                             </TableCell>
                                             <TableCell>
-                                                <Typography align="center">
+                                                <Typography sx={{fontWeight: 'bold'}} align="center">
                                                     Score
                                                 </Typography>
                                             </TableCell>
@@ -94,14 +94,14 @@ export default function Home() {
                                     </TableHead>
                                     <TableBody>
                                         {leaders?.number_memory?.map((p, index) => (
-                                            <TableRow key={p.id}>
-                                                <TableCell align="center">
+                                            <TableRow sx={{color: index === 0 ? "gold" : (index === 1 ? "silver" : (index === 2 ? "#804a00" : "black")), background: "grey"}} key={p.id}>
+                                                <TableCell sx={{color: 'inherit', textShadow: index === 0 ? "0px 0px 3px gold" : (index === 1 ? "0px 0px 3px silver" : (index === 2 ? "0px 0px 3px #804a00" : "none"))}} align="center">
                                                     {index + 1}
                                                 </TableCell>
-                                                <TableCell align="center">
+                                                <TableCell sx={{color: 'inherit', textShadow: index === 0 ? "0px 0px 3px gold" : (index === 1 ? "0px 0px 3px silver" : (index === 2 ? "0px 0px 3px #804a00" : "none"))}} align="center">
                                                     {p.display_name}
                                                 </TableCell>
-                                                <TableCell align="center">
+                                                <TableCell sx={{color: 'inherit', textShadow: index === 0 ? "0px 0px 3px gold" : (index === 1 ? "0px 0px 3px silver" : (index === 2 ? "0px 0px 3px #804a00" : "none"))}} align="center">
                                                     {p.score}
                                                 </TableCell>
                                             </TableRow>
@@ -109,6 +109,7 @@ export default function Home() {
                                     </TableBody>
                                 </Table>
                             </Box>
+                            
                             <Box sx={{width: '400px'}}>
                                 <Table>
                                     <TableHead>
@@ -119,19 +120,19 @@ export default function Home() {
                                                 </Typography>
                                             </TableCell>
                                         </TableRow>
-                                        <TableRow>
+                                        <TableRow sx={{background: 'grey'}}>
                                             <TableCell>
-                                                <Typography align="center">
+                                                <Typography sx={{fontWeight: 'bold'}} align="center">
                                                     Rank
                                                 </Typography>
                                             </TableCell>
                                             <TableCell>
-                                                <Typography align="center">
+                                                <Typography sx={{fontWeight: 'bold'}} align="center">
                                                     Name
                                                 </Typography>
                                             </TableCell>
                                             <TableCell>
-                                                <Typography align="center">
+                                                <Typography sx={{fontWeight: 'bold'}} align="center">
                                                     Score
                                                 </Typography>
                                             </TableCell>
@@ -139,14 +140,14 @@ export default function Home() {
                                     </TableHead>
                                     <TableBody>
                                         {leaders?.sequence_memory?.map((p, index) => (
-                                            <TableRow key={p.id}>
-                                                <TableCell align="center">
+                                            <TableRow sx={{color: index === 0 ? "gold" : (index === 1 ? "silver" : (index === 2 ? "#804a00" : "black")), background: "grey"}} key={p.id}>
+                                                <TableCell sx={{color: 'inherit', textShadow: index === 0 ? "0px 0px 3px gold" : (index === 1 ? "0px 0px 3px silver" : (index === 2 ? "0px 0px 3px #804a00" : "none"))}} align="center">
                                                     {index + 1}
                                                 </TableCell>
-                                                <TableCell align="center">
+                                                <TableCell sx={{color: 'inherit', textShadow: index === 0 ? "0px 0px 3px gold" : (index === 1 ? "0px 0px 3px silver" : (index === 2 ? "0px 0px 3px #804a00" : "none"))}} align="center">
                                                     {p.display_name}
                                                 </TableCell>
-                                                <TableCell align="center">
+                                                <TableCell sx={{color: 'inherit', textShadow: index === 0 ? "0px 0px 3px gold" : (index === 1 ? "0px 0px 3px silver" : (index === 2 ? "0px 0px 3px #804a00" : "none"))}} align="center">
                                                     {p.score}
                                                 </TableCell>
                                             </TableRow>
